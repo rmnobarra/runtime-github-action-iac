@@ -1,0 +1,21 @@
+name: Action Test Ubuntu
+
+on:
+  push:
+    paths:
+      - '.github/workflows/action-test-linux.yaml'
+      - 'action.yaml'
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  ubuntu:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: rmnobarra/runtime-github-action-iac@main
+        with:
+          LEVEL_LOG: debug
+          FILE_PATH: iac.yaml
