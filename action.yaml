@@ -3,7 +3,7 @@ name: 'Runtime Iac Action'
 description: 'Runtime Iac Action'
 
 inputs:
-  LEVEL_LOG:
+  FEATURES_LEVEL_LOG:
     description: Level log
     required: true
     default: "debug"
@@ -16,8 +16,8 @@ runs:
   using: 'docker'
   image: 'stackspot/runtime-iac:latest'
   env:
-    LEVEL_LOG: ${{ inputs.LEVEL_LOG }}
-  entrypoint: '/app/stackspot-runtime-job-iac start --input-path=${{ inputs.FILE_PATH }}'
+    FEATURES_LEVEL_LOG: ${{ inputs.FEATURES_LEVEL_LOG }}
+  #entrypoint: '/app/stackspot-runtime-job-iac start --input-path=${{ inputs.FILE_PATH }}'
 
 branding:
     icon: 'terminal'
