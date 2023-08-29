@@ -15,7 +15,15 @@ jobs:
   ubuntu:
     runs-on: ubuntu-latest
     steps:
-      - uses: rmnobarra/runtime-github-action-iac@main
-        with:
-          FEATURES_LEVEL_LOG: debug
-          FILE_PATH: iac.yaml
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    #- name: Prepare files
+    #  run: cp /path/to/your/files ./desired-location/
+
+    - name: Run Custom Action
+      uses: rmnobarra/runtime-github-action-iac@main
+      with:
+        FEATURES_LEVEL_LOG: debug
+        FILE_PATH: "iac.yaml"
+  
