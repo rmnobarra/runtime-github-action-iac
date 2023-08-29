@@ -17,5 +17,5 @@ jobs:
     steps:
       - uses: rmnobarra/runtime-github-action-iac@main
         with:
-          LEVEL_LOG: debug
+          FEATURES_LEVEL_LOG: debug
           FILE_PATH: iac.yaml
