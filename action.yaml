@@ -15,8 +15,8 @@ runs:
   using: 'docker'
   image: 'stackspot/runtime-iac:latest'
   env:
-    FEATURES_LEVEL_LOG: ${{ inputs.level_log }}
-  entrypoint: '/app/stackspot-runtime-job-iac start --input-path=${{ inputs.file_path }}'
+    FEATURES_LEVEL_LOG: ${{ inputs.LEVEL_LOG }}
+  entrypoint: '/app/stackspot-runtime-job-iac start --input-path=${{ inputs.FILE_PATH }}'
 
 branding:
     icon: 'terminal'
