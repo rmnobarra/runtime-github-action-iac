@@ -1,0 +1,54 @@
+name: 'Runtime Iac'
+
+description: 'Runtime Iac Action'
+
+inputs:
+  client_id:
+    description: Account client id
+    required: true
+  client_key:
+    description: Account client key
+    required: true
+  realm:
+    description: Account client realm
+    required: true
+
+name: 'My Custom GitHub Action'
+description: 'Runs rit and go version'
+inputs: # Add any inputs you need
+outputs: # Define outputs if any
+runs:
+  using: 'docker'
+  image: 'stackspot/runtime-iac'
+
+
+
+runs:
+  using: "docker"
+  image: 
+  steps:
+    - name: Check Runner
+      run: echo 🤖 OS runner is $(uname)
+      shell: bash
+
+    - name: Get Token
+      id: getToken
+      shell: bash
+      run: |
+        "Call IDM"
+        TOKEN_OUTPUT=$(curl --location --request POST \
+        'https://idm.stackspot.com/realms/${{ inputs.realm }}/protocol/openid-connect/token' \
+        --header 'Content-Type: application/x-www-form-urlencoded' \
+        --data-urlencode 'client_id=${{ inputs.client_id }}' \
+        --data-urlencode 'grant_type=client_credentials' \
+        --data-urlencode 'client_secret=${{ inputs.client_key }}')
+         ACCESS_TOKEN=$(echo $TOKEN_OUTPUT | jq '.access-token')
+         ACCESS_TOKEN=$ACCESS_TOKEN >> GITHUB_OUTPUT
+      
+
+
+
+
+branding:
+    icon: 'terminal'
+    color: 'gray-dark'
