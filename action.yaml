@@ -19,8 +19,6 @@ runs:
     FEATURES_LEVEL_LOG: ${{ inputs.FEATURES_LEVEL_LOG }}
     FILE_PATH: ${{ inputs.FILE_PATH }}
   entrypoint: '/app/stackspot-runtime-job-iac start --input-path=/app/$FILE_PATH'
-  volumes:
-    - ${{ github.workspace }}:/app
 
 branding:
     icon: 'terminal'
