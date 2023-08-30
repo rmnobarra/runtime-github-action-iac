@@ -1,20 +1,29 @@
-name: "Run Docker Container"
-description: "Executa um container Docker com parâmetros personalizados"
+name: "Run Runtime Action Iac"
+description: "Runs Runtime Action Iac with parameters"
 inputs:
   FEATURES_LEVEL_LOG:
-    description: "Nível de log"
+    description: "Log Level"
     required: true
   input_path:
-    description: "Nome do arquivo para input-path"
+    description: "Input file name"
     required: true
 
 runs:
   using: "composite"
   steps:
-    - name: Executar o Docker Container
+
+    - name: Check Runner
+      run: echo 🤖 OS runner is $(uname)
+      shell: bash
+      
+    - name: Run Runtime Action Iac
       run: |
         docker run --rm \
         -e FEATURES_LEVEL_LOG=${{ inputs.FEATURES_LEVEL_LOG }} \
         --entrypoint=/app/stackspot-runtime-job-iac \
         stackspot/runtime-iac start --input-path=${{ inputs.input_path }}
       shell: bash
+
+branding:
+    icon: 'terminal'
+    color: 'orange'

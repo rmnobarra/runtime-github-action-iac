@@ -1,9 +1,9 @@
-name: Action Test Ubuntu
+name: Action Test MacOS
 
 on:
   push:
     paths:
-      - '.github/workflows/action-test-linux.yaml'
+      - '.github/workflows/action-test-macos.yaml'
       - 'action.yaml'
   workflow_dispatch:
 
@@ -13,7 +13,7 @@ concurrency:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
 
     steps:
     - name: Checkout code
