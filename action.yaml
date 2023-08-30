@@ -1,27 +1,20 @@
-name: 'Runtime Iac Action'
-
-description: 'Runtime Iac Action'
-
+name: "Run Docker Container"
+description: "Executa um container Docker com parâmetros personalizados"
 inputs:
   FEATURES_LEVEL_LOG:
-    description: Level log
+    description: "Nível de log"
     required: true
-    default: debug
-  FILE_PATH:
-    description: File path
+  input_path:
+    description: "Nome do arquivo para input-path"
     required: true
-    default: iac.yaml
 
 runs:
-  using: 'docker'
-  image: docker://stackspot/runtime-iac:latest
-  env:
-    FEATURES_LEVEL_LOG: ${{ inputs.FEATURES_LEVEL_LOG }}
-    #FILE_PATH: ${{ inputs.FILE_PATH }}
-  args:
-    - ${{ inputs.FILE_PATH }}
-  entrypoint: /app/stackspot-runtime-job-iac start --input-path=iac.yaml
-
-branding:
-    icon: 'terminal'
-    color: 'gray-dark'
+  using: "composite"
+  steps:
+    - name: Executar o Docker Container
+      run: |
+        docker run --rm \
+        -e FEATURES_LEVEL_LOG=${{ inputs.FEATURES_LEVEL_LOG }} \
+        --entrypoint=/app/stackspot-runtime-job-iac \
+        stackspot/runtime-iac start --input-path=${{ inputs.input_path }}
+      shell: bash
