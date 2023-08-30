@@ -25,7 +25,7 @@ jobs:
       run: ls -la
 
     - name: Prepare files
-      run: cp "${FILE_PATH} /app/"
+      run: echo  ${FILE_PATH} && cp ${FILE_PATH} /app/
 
     - name: Runtime Iac Action
       uses: rmnobarra/runtime-github-action-iac@main
