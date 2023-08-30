@@ -18,8 +18,9 @@ runs:
   env:
     FEATURES_LEVEL_LOG: ${{ inputs.FEATURES_LEVEL_LOG }}
     FILE_PATH: ${{ inputs.FILE_PATH }}
-  options:
-    - '-v {{inputs.FILE_PATH}}:/app/iac.yaml'
+  args:
+    - 'echo ${{ inputs.FILE_PATH }}'
+  #pre-entrypoint: 'setup.sh'
   entrypoint: '/app/stackspot-runtime-job-iac start --input-path=iac.yaml'
 
 branding:
