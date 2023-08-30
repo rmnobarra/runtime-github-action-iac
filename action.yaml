@@ -17,7 +17,6 @@ runs:
   image: docker://stackspot/runtime-iac:latest
   env:
     FEATURES_LEVEL_LOG: ${{ inputs.FEATURES_LEVEL_LOG }}
-    GITHUB_WORKSPACE: ${{ github.workspace }}
     #FILE_PATH: ${{ inputs.FILE_PATH }}
   args:
     - ${{ inputs.FILE_PATH }}
