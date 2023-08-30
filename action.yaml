@@ -6,11 +6,11 @@ inputs:
   FEATURES_LEVEL_LOG:
     description: Level log
     required: true
-    default: "debug"
+    default: debug
   FILE_PATH:
     description: File path
     required: true
-    default: "iac.yaml"
+    default: iac.yaml
 
 runs:
   using: 'docker'
@@ -20,8 +20,7 @@ runs:
     #FILE_PATH: ${{ inputs.FILE_PATH }}
   args:
     - ${{ inputs.FILE_PATH }}
-  #entrypoint: '/app/stackspot-runtime-job-iac start --input-path=$FILE_PATH'
-  entrypoint: 'setup.sh'
+  entrypoint: '/app/stackspot-runtime-job-iac start --input-path=$FILE_PATH'
 
 branding:
     icon: 'terminal'
