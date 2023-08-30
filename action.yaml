@@ -19,7 +19,7 @@ runs:
     FEATURES_LEVEL_LOG: ${{ inputs.FEATURES_LEVEL_LOG }}
     FILE_PATH: ${{ inputs.FILE_PATH }}
   args:
-    - 'ls -la'
+    - 'sh -c "ls -la"'
   entrypoint: '/app/stackspot-runtime-job-iac start --input-path=$FILE_PATH'
 
 branding:
