@@ -20,6 +20,7 @@ runs:
     FILE_PATH: ${{ inputs.FILE_PATH }}
   args:
     - 'cp $FILE_PATH /app/iac.yaml'
+    - 'ls -la /app'
   entrypoint: '/app/stackspot-runtime-job-iac start --input-path=iac.yaml'
 
 branding:
