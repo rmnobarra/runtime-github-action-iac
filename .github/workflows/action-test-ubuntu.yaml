@@ -18,8 +18,14 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
+    - name: Check things
+      run: tree
+
+    - name: Check things 2
+      run: ls -la
+
     - name: Prepare files
-      run: cp "${FILE_PATH} /app/iac.yaml"
+      run: cp "${FILE_PATH} /app/"
 
     - name: Runtime Iac Action
       uses: rmnobarra/runtime-github-action-iac@main
