@@ -20,7 +20,7 @@ runs:
     #FILE_PATH: ${{ inputs.FILE_PATH }}
   args:
     - ${{ inputs.FILE_PATH }}
-  entrypoint: '/app/stackspot-runtime-job-iac start --input-path=${{ github.workspace }}/iac.yaml'
+  entrypoint: /app/stackspot-runtime-job-iac start --input-path=${{ github.workspace }}/iac.yaml
 
 branding:
     icon: 'terminal'
