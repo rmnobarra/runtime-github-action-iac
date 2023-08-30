@@ -18,8 +18,8 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Prepare files
-      run: cp iac.yaml /app/
+    #- name: Prepare files
+    #  run: cp iac.yaml /app/
 
     - name: Run Custom Action
       uses: rmnobarra/runtime-github-action-iac@main
