@@ -14,6 +14,11 @@ concurrency:
 jobs:
   ubuntu:
     runs-on: ubuntu-latest
+    container:
+      image: ubuntu:latest
+      volumes:
+        - ${{ github.workspace }}:/app
+        
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
