@@ -10,10 +10,10 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       
     - name: Executar minha action
-      uses: ./.github/actions/run-docker-container
+      uses: rmnobarra/runtime-github-action-iac@main
       with:
         FEATURES_LEVEL_LOG: debug
         input_path: iac.yaml
