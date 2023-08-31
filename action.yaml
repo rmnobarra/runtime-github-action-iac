@@ -9,7 +9,12 @@ inputs:
     required: true
 
 runs:
-  using: "composite"
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.FEATURES_LEVEL_LOG }}
+    - ${{ inputs.input_path }}
+    
   steps:
 
     - name: Check Runner
