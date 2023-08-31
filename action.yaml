@@ -14,20 +14,6 @@ runs:
   args:
     - ${{ inputs.FEATURES_LEVEL_LOG }}
     - ${{ inputs.input_path }}
-    
-  steps:
-
-    - name: Check Runner
-      run: echo 🤖 OS runner is $(uname)
-      shell: bash
-      
-    - name: Run Runtime Action Iac
-      run: |
-        docker run --rm \
-        -e FEATURES_LEVEL_LOG=${{ inputs.FEATURES_LEVEL_LOG }} \
-        --entrypoint=/app/stackspot-runtime-job-iac \
-        stackspot/runtime-iac start --input-path=${{ inputs.input_path }}
-      shell: bash
 
 branding:
     icon: 'terminal'
