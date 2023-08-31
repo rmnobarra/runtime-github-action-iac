@@ -4,7 +4,7 @@ inputs:
   FEATURES_LEVEL_LOG:
     description: "Log Level"
     required: true
-  input_path:
+  INPUT_PATH:
     description: "Input file name"
     required: true
 
@@ -13,7 +13,7 @@ runs:
   image: "Dockerfile"
   args:
     - ${{ inputs.FEATURES_LEVEL_LOG }}
-    - ${{ inputs.input_path }}
+    - ${{ inputs.INPUT_PATH }}
 
 branding:
     icon: 'terminal'
